@@ -31,7 +31,7 @@ module.exports = {
     }
   },
   plugins: [
-    'gatsby-plugin-debug-build',
+    // 'gatsby-plugin-debug-build',
     {
       resolve: 'gatsby-route-plugin',
       options: {
