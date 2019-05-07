@@ -15,7 +15,7 @@
     "start": "npm run dev",
     "serve": "gatsby serve",
     "prebuild": "cd functions/add-example && npm install",
-    "build": "gatsby build",
+    "build": "gatsby build --no-uglify",
     "clean": "rm -rf public && rm -rf .cache",
     "lint:js": "eslint --ext .js,.jsx .",
     "lint:md": "remark content/posts/",
