@@ -64,6 +64,7 @@ export default class Grid extends React.Component {
     this.setSearch(this.props.tag)
   }
   componentDidUpdate (prevProps, prevState) {
+    // bug here?
     if (prevProps.tag !== this.props.tag) {
       this.setSearch(this.props.tag)
     }
