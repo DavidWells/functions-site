@@ -129,7 +129,7 @@ export default class Grid extends React.Component {
       return false
     }).map((example, i) => {
       // get first link
-      const codeLink = (example.code) ? example.code.split(',')[0] : 'na'
+      const codeLink = (Array.isArray(example.code)) ? example.code[0] : example.code
       console.log('Render this link', codeLink)
       return (
         <Card key={i} className={styles.item}>
