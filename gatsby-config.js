@@ -3,9 +3,9 @@ const config = require('./_site-config')
 const isDevelopment = process.env.NODE_ENV !== `production`
 
 /* hot module reloading for CSS variables */
-const postcssFile = require.resolve("./postcss.config.js")
+const postcssFile = require.resolve('./postcss.config.js')
 const postcssPlugins = (webpackInstance) => {
-  const varFile = require.resolve("./src/_variables.js")
+  const varFile = require.resolve('./src/_variables.js')
   const varFileContents = () => {
     webpackInstance.addDependency(varFile)
     delete require.cache[varFile]
@@ -41,6 +41,15 @@ module.exports = {
       resolve: 'gatsby-plugin-analytics',
       options: {
         debug: true
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-sentry',
+      options: {
+        dsn: 'https://0ac0846560964da9b6653b8e3e3dd589@sentry.io/1455514',
+        // Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
+        environment: process.env.NODE_ENV,
+        enabled: (() => ['production', 'stage'].indexOf(process.env.NODE_ENV) !== -1)()
       }
     },
     'gatsby-plugin-react-helmet',
