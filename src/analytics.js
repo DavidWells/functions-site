@@ -19,13 +19,14 @@ const analytics = Analytics({
     {
       NAMESPACE: 'netlify-analytics-plugin',
       page: ({ payload }) => {
+        const { properties, meta } = payload
         const data = {
           method: 'POST',
           headers: new Headers({ 'Content-Type': 'application/json' }),
           body: JSON.stringify({
-            date: payload.meta.timestamp,
-            name: document.title,
-            url: payload.url,
+            date: meta.timestamp || new Date().getTime(),
+            name: properties.title || document.title,
+            url: properties.url,
             website: 'functions'
           }),
         }
