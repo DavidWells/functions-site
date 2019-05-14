@@ -30,7 +30,9 @@ const analytics = Analytics({
             website: 'functions'
           }),
         }
-        fetch('https://gr4ziaod9h.execute-api.us-west-1.amazonaws.com/prod/track', data)
+        if (window.location.origin === 'https://functions.netlify.com') {
+          fetch('https://gr4ziaod9h.execute-api.us-west-1.amazonaws.com/prod/track', data)
+        }
       }
     },
     {
