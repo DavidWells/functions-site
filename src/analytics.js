@@ -15,6 +15,23 @@ const analytics = Analytics({
     customerIoPlugin({
       siteId: '4dfdba9c7f1a6d60f779'
     }),
+    // custome netlify analytics
+    {
+      NAMESPACE: 'netlify-analytics-plugin',
+      page: ({ payload }) => {
+        const data = {
+          method: 'POST',
+          headers: new Headers({ 'Content-Type': 'application/json' }),
+          body: JSON.stringify({
+            date: payload.meta.timestamp,
+            name: document.title,
+            url: payload.url,
+            website: 'functions'
+          }),
+        }
+        fetch('https://gr4ziaod9h.execute-api.us-west-1.amazonaws.com/prod/track', data)
+      }
+    },
     {
       NAMESPACE: 'test-plugin',
       page: (d) => {
