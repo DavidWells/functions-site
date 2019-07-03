@@ -47,7 +47,7 @@ const analytics = Analytics({
       siteId: '4dfdba9c7f1a6d60f779'
     }),
     // custome netlify analytics
-    {
+    /*{
       NAMESPACE: 'netlify-analytics-plugin',
       page: ({ payload }) => {
         const { properties, meta } = payload
@@ -69,7 +69,7 @@ const analytics = Analytics({
           fetch('https://gr4ziaod9h.execute-api.us-west-1.amazonaws.com/prod/track', data)
         }
       }
-    },
+    },*/
     {
       NAMESPACE: 'test-plugin',
       page: (d) => {
